@@ -1,0 +1,41 @@
+---
+import Document from '../layouts/Document.astro'
+import { When } from '@astropub/flow'
+---
+<Document title="Astro When Component">
+	<h1>
+		The <code>&lt;When&gt;</code> Component
+	</h1>
+	<hr />
+	<pre><code
+>&lt;When &#x7B;true&#x7D;&gt;
+	&lt;h2&gt;True&lt;/h2&gt;
+	&lt;Fragment slot=&quot;else&quot;&gt;
+		&lt;h2&gt;False&lt;/h2&gt;
+	&lt;/Fragment&gt;
+&lt;/When&gt;</code></pre>
+	<When {true}>
+		<h2>True</h2>
+		<Fragment slot="else">
+			<h2>False</h2>
+		</Fragment>
+	</When>
+	<hr />
+	<pre><code
+>&lt;When &#x7B;false&#x7D;&gt;
+	&lt;h2&gt;True&lt;/h2&gt;
+	&lt;Fragment slot=&quot;else&quot;&gt;
+		&lt;h2&gt;False&lt;/h2&gt;
+	&lt;/Fragment&gt;
+&lt;/When&gt;</code></pre>
+	<When {false}>
+		<h2>True</h2>
+		<Fragment slot="else">
+			<h2>False</h2>
+		</Fragment>
+	</When>
+	<hr />
+	<p>
+		<a href="../">Go back</a>
+	</p>
+</Document>

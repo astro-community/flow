@@ -1,0 +1,17 @@
+---
+import { statesOfWhen } from './shared.js'
+
+const render = async (props: Record<string, any>) => {
+	/** Whether the "when" state is true or false. */
+	const hasTruthyWhen = Object.values(props).every(value => Boolean(value))
+
+	/** Slot to render, which is `"default"` when `true` and `"else"` when `false`. */
+	const slotToRender = hasTruthyWhen ? 'default' : 'else'
+
+	/** Rendered contents. */
+	const htmlPart = new String(await Astro.slots.render(slotToRender))
+
+	return htmlPart
+}
+---
+{render(Astro.props)}

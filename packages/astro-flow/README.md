@@ -9,6 +9,15 @@
 ```
 
 ```astro
+<When {checkForTruthiness} {alsoCheckForTruthiness}>
+  <p>Everything was Truthy!</p>
+
+  <Fragment slot="else">
+    <p>Not everything was truthy...</p>
+</When>
+```
+
+```astro
 <Switch of={null}>
   <Case of={true}>
     <h1>Positive</h1>
@@ -37,11 +46,15 @@ Use **Astro Flow** components in your project.
 
 ```astro
 ---
-import { Case, For, Switch } from '@astropub/flow'
+import { Case, For, Switch, When } from '@astropub/flow'
 ---
 <For of={items}>{
   (item) => <h2>{item.title}</h2>
 }</For>
+
+<When {true}>
+  <p>Things are true.</p>
+</When>
 
 <Switch of={null}>
   <Case of={true}>

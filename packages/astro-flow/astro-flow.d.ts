@@ -1,3 +1,5 @@
+// -----------------------------------------------------------------------------
+
 export function For<T>(props: ForProps<T>): any
 
 export interface ForProps<T> {
@@ -7,8 +9,10 @@ export interface ForProps<T> {
 	}
 }
 
-export function Switch(props: SwitchProps): any
+// -----------------------------------------------------------------------------
+
 export function Case<T>(props: CaseProps<T>): any
+export function Switch(props: SwitchProps): any
 
 export interface SwitchProps {
 	of: any
@@ -35,3 +39,9 @@ export type CaseProps<T> = (
 		}
 	: any
 )
+
+// -----------------------------------------------------------------------------
+
+export function When(props: WhenProps): any
+
+interface WhenProps {}

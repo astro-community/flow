@@ -1,11 +1,15 @@
 // @ts-check
 
 /** Symbol used to share data between AstroSwitch and AstroCase. */
-const symbol = Symbol.for('astro-switch')
+const $$switch = Symbol.for('astro-switch')
 
-/** @type {Shared[]} Array of shared state to manage AstroSwitch and AstroCase. */
-const shared = globalThis[symbol] = globalThis[symbol] || []
+/** @type {Switch[]} Array of shared state to manage AstroSwitch and AstroCase. */
+export const statesOfSwitch = globalThis[$$switch] = globalThis[$$switch] || []
 
-export default shared
+export function getSwitchState() {
+	return /** @type {Switch} */ (statesOfSwitch.at(-1))
+}
 
-/** @typedef {{ value: any, hasRenderedCase: boolean, hasRenderedDefault: boolean }} Shared */
+/** @typedef {{ value: any, hasRenderedCase: boolean, hasRenderedDefault: boolean }} Switch */
+
+/** @typedef {{ value: any, hasRenderedCase: boolean, hasRenderedDefault: boolean }} When */
