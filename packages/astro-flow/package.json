@@ -1,0 +1,54 @@
+{
+	"$schema": "https://json.schemastore.org/package.json",
+	"name": "@astropub/flow",
+	"description": "Use control flow statements in Astro",
+	"version": "0.1.0",
+	"type": "module",
+	"license": "CC0-1.0",
+	"exports": {
+		".": {
+			"default": "./astro-flow.js",
+			"types": "./astro-flow.d.ts"
+		},
+		"./astro-flow": {
+			"default": "./astro-flow.js",
+			"types": "./astro-flow.d.ts"
+		},
+		"./package": "./package.json",
+		"./package.json": "./package.json"
+	},
+	"main": "astro-flow.js",
+	"types": "astro-flow.d.ts",
+	"unpkg": "astro-flow.js",
+	"jsdelivr": "astro-flow.js",
+	"sideEffects": false,
+	"files": [
+		"astro-flow.js",
+		"astro-flow.d.ts",
+		"AstroCase.astro",
+		"AstroFor.astro",
+		"AstroSwitch.astro",
+		"package.json",
+		"shared.js"
+	],
+	"keywords": [
+		"astro-component",
+		"astro",
+		"component",
+		"perf",
+		"performance",
+		"case",
+		"control",
+		"each",
+		"flow",
+		"for",
+		"loop",
+		"of",
+		"statement",
+		"switch"
+	],
+	"author": "Jonathan Neal <jonathantneal@hotmail.com>",
+	"bugs": "https://github.com/astro-community/astro-flow/issues",
+	"homepage": "https://github.com/astro-community/astro-flow",
+	"repository": "https://github.com/astro-community/astro-flow.git"
+}

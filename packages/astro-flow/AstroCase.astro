@@ -1,0 +1,37 @@
+---
+import type { Shared } from './shared.js'
+import internal from './shared.js'
+
+/** Shared state between AstroSwitch and AstroCase. */
+const state = Object(internal.at(-1)) as Shared
+
+/** Value to match against the current Switch. */
+const ofArg = Astro.props.of
+
+/** Whether to render if no other cases have rendered. */
+const isDefault = Astro.props.default
+
+/** Whether to render this case. */
+const shouldRenderSlot = (
+	isDefault
+		? state.hasRenderedCase === false
+	: state.hasRenderedDefault === false
+		? typeof ofArg === 'function'
+			? ofArg(state.value)
+		: ofArg === state.value
+	: false
+)
+
+// if the test passed
+if (shouldRenderSlot) {
+	// if the case was not a default argument
+	if (isDefault === undefined) {
+		// mark a case as rendered
+		state.hasRenderedCase = true
+	} else {
+		// otherwise, mark default as rendered
+		state.hasRenderedDefault = true
+	}
+}
+---
+{shouldRenderSlot && <slot />}

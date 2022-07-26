@@ -1,0 +1,18 @@
+---
+import type { Shared } from './shared.js'
+import internal from './shared.js'
+
+const render = async (condition: any) => {
+	// add a new shared state for any descendant cases
+	internal.push({ hasRenderedCase: false, hasRenderedDefault: false, value: condition } as Shared)
+
+	/** Rendered contents of the current switch. */
+	const htmlPart = new String(await Astro.slots.render('default'))
+
+	// remove the current shared state
+	internal.pop()
+
+	return htmlPart
+}
+---
+{render(Astro.props.of)}

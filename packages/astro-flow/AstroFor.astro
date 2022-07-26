@@ -1,0 +1,14 @@
+---
+const render = async (propset: Record<string, any>[]) => {
+	const htmlParts: string[] = []
+
+	for (const props of propset) {
+		htmlParts.push(
+			await Astro.slots.render('default', [ props ])
+		)
+	}
+
+	return new String(htmlParts.join(''))
+}
+---
+{render(Astro.props.of)}

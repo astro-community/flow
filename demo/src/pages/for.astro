@@ -1,0 +1,32 @@
+---
+import Document from '../layouts/Document.astro'
+import { For } from '@astropub/flow'
+---
+<Document>
+	<h1>
+		The <code>&lt;For&gt;</code> Component
+	</h1>
+	<hr />
+	<pre><code
+>&lt;For of=&#x7B;[
+	&#x7B; title: 'This is the first item.' &#x7D;,
+	&#x7B; title: 'This is the second item.' &#x7D;,
+	&#x7B; title: 'This is the last item.' &#x7D;,
+]&#x7D;&gt;&#x7B;(item) =&gt; (
+	&lt;li&gt;&#x7B;item.title&#x7D;&lt;/li&gt;
+)&#x7D;&lt;/For&gt;</code></pre>
+	<hr />
+	<ul>
+		<For of={[
+			{ title: 'This is the first item.' },
+			{ title: 'This is the second item.' },
+			{ title: 'This is the last item.' },
+		]}>{(item) => (
+			<li>{item.title}</li>
+		)}</For>
+	</ul>
+	<hr />
+	<p>
+		<a href="../">Go back</a>
+	</p>
+</Document>
