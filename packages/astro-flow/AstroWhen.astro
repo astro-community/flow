@@ -1,6 +1,4 @@
 ---
-import { statesOfWhen } from './shared.js'
-
 const render = async (props: Record<string, any>) => {
 	/** Whether the "when" state is true or false. */
 	const hasTruthyWhen = Object.values(props).every(value => Boolean(value))
