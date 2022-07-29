@@ -17,6 +17,7 @@
 
   <Fragment slot="else">
     <p>Not everything was truthy...</p>
+  </Fragment>
 </When>
 ```
 

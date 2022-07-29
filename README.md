@@ -7,34 +7,34 @@
 
 ```astro
 <For of={items}>{
-	(item) => <h2>{item.title}</h2>
+  (item) => <h2>{item.title}</h2>
 }</For>
 ```
 
 ```astro
 <When {checkForTruthiness} {alsoCheckForTruthiness}>
-	<p>Everything was Truthy!</p>
+  <p>Everything was Truthy!</p>
 
-	<Fragment slot="else">
-		<p>Not everything was truthy...</p>
-	</Fragment>
+  <Fragment slot="else">
+    <p>Not everything was truthy...</p>
+  </Fragment>
 </When>
 ```
 
 ```astro
 <Switch of={null}>
-	<Case of={true}>
-		<h1>Positive</h1>
-		<h2>Truly Positive</h2>
-	</Case>
-	<Case of={false}>
-		<h1>Negative</h1>
-		<h2>Really Negative</h2>
-	</Case>
-	<Case default>
-		<h1>Default</h1>
-		<h2>Definitely Default</h2>
-	</Case>
+  <Case of={true}>
+    <h1>Positive</h1>
+    <h2>Truly Positive</h2>
+  </Case>
+  <Case of={false}>
+    <h1>Negative</h1>
+    <h2>Really Negative</h2>
+  </Case>
+  <Case default>
+    <h1>Default</h1>
+    <h2>Definitely Default</h2>
+  </Case>
 </Switch>
 ```
 
@@ -53,26 +53,26 @@ Use **Astro Flow** components in your project.
 import { Case, For, Switch } from '@astropub/flow'
 ---
 <For of={items}>{
-	(item) => <h2>{item.title}</h2>
+  (item) => <h2>{item.title}</h2>
 }</For>
 
 <When {true}>
-	<p>Things are true.</p>
+  <p>Things are true.</p>
 </When>
 
 <Switch of={null}>
-	<Case of={true}>
-		<h1>Positive</h1>
-		<h2>Truly Positive</h2>
-	</Case>
-	<Case of={false}>
-		<h1>Negative</h1>
-		<h2>Really Negative</h2>
-	</Case>
-	<Case default>
-		<h1>Default</h1>
-		<h2>Definitely Default</h2>
-	</Case>
+  <Case of={true}>
+    <h1>Positive</h1>
+    <h2>Truly Positive</h2>
+  </Case>
+  <Case of={false}>
+    <h1>Negative</h1>
+    <h2>Really Negative</h2>
+  </Case>
+  <Case default>
+    <h1>Default</h1>
+    <h2>Definitely Default</h2>
+  </Case>
 </Switch>
 ```
 
@@ -88,12 +88,12 @@ Inside of this Astro project, you'll see the following folders and files:
 │   ├── public/
 │   └── src/
 │       └── pages/
-						├── index.astro
+            ├── index.astro
 │           └── ...etc
 └── packages/
-		└── astro-flow/
-				├── package.json
-				└── ...etc
+    └── astro-flow/
+        ├── package.json
+        └── ...etc
 ```
 
 This project uses **workspaces** to develop a single package, `@astropub/flow`.
