@@ -4,10 +4,10 @@ const render = async (props: Record<string, any>) => {
 	const hasTruthyWhen = Object.values(props).every(value => Boolean(value))
 
 	/** Slot to render, which is `"default"` when `true` and `"else"` when `false`. */
-	const slotToRender = hasTruthyWhen ? 'default' : 'else'
+	const slotToRender = hasTruthyWhen ? 'default' : Object.hasOwn(Astro.slots, 'else') ? 'else' : ''
 
 	/** Rendered contents. */
-	const htmlPart = new String(await Astro.slots.render(slotToRender))
+	const htmlPart = new String(slotToRender ? await Astro.slots.render(slotToRender) : '')
 
 	return htmlPart
 }
