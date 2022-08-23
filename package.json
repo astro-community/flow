@@ -1,7 +1,7 @@
 {
 	"name": "astro-flow-root",
 	"type": "module",
-	"version": "0.2.2",
+	"version": "0.3.0",
 	"workspaces": [
 		"demo",
 		"packages/*"
@@ -21,8 +21,15 @@
 		"trailingComma": "es5",
 		"useTabs": true
 	},
+	"stackblitz": {
+		"startCommand": "npm start",
+		"env": {
+			"ENABLE_CJS_IMPORTS": true
+		}
+	},
 	"devDependencies": {
-		"astro": "latest"
+		"astro": "latest",
+		"types-object": "latest"
 	},
 	"private": true
 }

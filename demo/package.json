@@ -1,7 +1,7 @@
 {
   "name": "astro-flow-demo",
   "type": "module",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "private": true,
   "scripts": {
     "start": "astro dev",
@@ -9,7 +9,7 @@
     "serve": "astro preview"
   },
   "devDependencies": {
-	"@astropub/flow": "0.2.2",
+	"@astropub/flow": "0.3.0",
     "astro": "latest"
   }
 }

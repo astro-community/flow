@@ -1,13 +1,6 @@
-// -----------------------------------------------------------------------------
-
-export function For<T>(props: ForProps<T>): any
-
-export interface ForProps<T> {
-	of: T[]
-	children: {
-		(entry: T): any
-	}
-}
+export { iterate } from './components/iterate.d'
+export { Iterate } from './components/iterate-component.d'
+export { Iterate as For } from './components/iterate-component.d'
 
 // -----------------------------------------------------------------------------
 

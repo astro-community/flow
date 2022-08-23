@@ -1,8 +1,8 @@
 {
 	"$schema": "https://json.schemastore.org/package.json",
 	"name": "@astropub/flow",
-	"description": "Use control flow statements in Astro",
-	"version": "0.2.2",
+	"description": "Use components to control flow in Astro",
+	"version": "0.3.0",
 	"type": "module",
 	"license": "CC0-1.0",
 	"exports": {
@@ -13,6 +13,27 @@
 		"./astro-flow": {
 			"default": "./astro-flow.js",
 			"types": "./astro-flow.d.ts"
+		},
+		"./Case": {
+			"default": "./lib/AstroCase.astro"
+		},
+		"./For": {
+			"default": "./lib/iterate-component.js",
+			"types": "./lib/iterate-component.d.ts"
+		},
+		"./iterate": {
+			"default": "./lib/iterate.js",
+			"types": "./lib/iterate.d.ts"
+		},
+		"./Iterate": {
+			"default": "./lib/iterate-component.js",
+			"types": "./lib/iterate-component.d.ts"
+		},
+		"./Switch": {
+			"default": "./lib/AstroSwitch.astro"
+		},
+		"./When": {
+			"default": "./lib/AstroWhen.astro"
 		},
 		"./package": "./package.json",
 		"./package.json": "./package.json"
@@ -25,12 +46,7 @@
 	"files": [
 		"astro-flow.js",
 		"astro-flow.d.ts",
-		"AstroCase.astro",
-		"AstroFor.astro",
-		"AstroSwitch.astro",
-		"AstroWhen.astro",
-		"package.json",
-		"shared.js"
+		"lib"
 	],
 	"keywords": [
 		"astro",
@@ -57,7 +73,7 @@
 		"when"
 	],
 	"author": "Jonathan Neal <jonathantneal@hotmail.com>",
-	"bugs": "https://github.com/astro-community/astro-flow/issues",
-	"homepage": "https://github.com/astro-community/astro-flow",
-	"repository": "https://github.com/astro-community/astro-flow.git"
+	"bugs": "https://github.com/astro-community/flow/issues",
+	"homepage": "https://github.com/astro-community/flow",
+	"repository": "https://github.com/astro-community/flow.git"
 }
