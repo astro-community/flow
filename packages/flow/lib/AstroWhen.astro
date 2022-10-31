@@ -1,4 +1,6 @@
 ---
+import { HTMLString } from './HTMLString.js'
+
 const render = async (props: Record<string, any>) => {
 	/** Whether the "when" state is true or false. */
 	const hasTruthyWhen = Object.values(props).every(value => Boolean(value))
@@ -7,7 +9,7 @@ const render = async (props: Record<string, any>) => {
 	const slotToRender = hasTruthyWhen ? 'default' : Object.hasOwn(Astro.slots, 'else') ? 'else' : ''
 
 	/** Rendered contents. */
-	const htmlPart = new String(slotToRender ? await Astro.slots.render(slotToRender) : '')
+	const htmlPart = new HTMLString(slotToRender ? await Astro.slots.render(slotToRender) : '')
 
 	return htmlPart
 }

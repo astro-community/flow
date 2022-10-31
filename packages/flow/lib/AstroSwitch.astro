@@ -1,5 +1,6 @@
 ---
 import { statesOfSwitch } from './AstroSwitchState.js'
+import { HTMLString } from './HTMLString.js'
 
 const render = async (condition: any) => {
 	const xyz = { hasRenderedCase: false, hasRenderedDefault: false, value: condition }
@@ -8,7 +9,7 @@ const render = async (condition: any) => {
 	statesOfSwitch.push(xyz)
 
 	/** Rendered contents. */
-	const htmlPart = new String(await Astro.slots.render('default'))
+	const htmlPart = new HTMLString(await Astro.slots.render('default'))
 
 	// remove the new shared "switch" state
 	statesOfSwitch.pop()
