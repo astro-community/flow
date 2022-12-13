@@ -3,7 +3,7 @@ import { getNormalizedGenerator, isIterable } from './shared.js'
 /** @type {import('./iterate-component').Iterate} */
 export const Iterate = Object.assign(
 	function Iterate(_result, attributes, slots) {
-		const render = slots.default?.().then(
+		const render = Promise.resolve(slots.default?.()).then(
 			(result) => result.expressions.at(0),
 			() => null
 		)

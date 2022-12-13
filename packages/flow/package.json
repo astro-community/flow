@@ -2,7 +2,7 @@
 	"$schema": "https://json.schemastore.org/package.json",
 	"name": "@astropub/flow",
 	"description": "Use components to control flow in Astro",
-	"version": "0.3.2",
+	"version": "0.3.3",
 	"type": "module",
 	"license": "CC0-1.0",
 	"exports": {
@@ -51,6 +51,7 @@
 	"keywords": [
 		"astro",
 		"astro-component",
+		"withastro",
 		"ui",
 		"perf",
 		"performance",
@@ -68,6 +69,7 @@
 		"if",
 		"loop",
 		"of",
+		"renderer",
 		"statement",
 		"switch",
 		"when"
