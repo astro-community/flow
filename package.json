@@ -1,7 +1,7 @@
 {
 	"name": "astro-flow-root",
 	"type": "module",
-	"version": "0.3.3",
+	"version": "0.3.4",
 	"workspaces": [
 		"demo",
 		"packages/*"

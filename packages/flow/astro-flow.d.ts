@@ -1,6 +1,6 @@
-export { iterate } from './components/iterate.d'
-export { Iterate } from './components/iterate-component.d'
-export { Iterate as For } from './components/iterate-component.d'
+export { iterate } from './lib/iterate.d'
+export { Iterate } from './lib/iterate-component.d'
+export { Iterate as For } from './lib/iterate-component.d'
 
 // -----------------------------------------------------------------------------
 
@@ -37,4 +37,4 @@ export type CaseProps<T> = (
 
 export function When(props: WhenProps): any
 
-interface WhenProps {}
+type WhenProps = Record<any, any>
