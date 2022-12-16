@@ -114,3 +114,5 @@ Read the [Astro documentation][docs-url] or jump into the [Astro Discord][chat-u
 [npm-url]: https://www.npmjs.com/package/@astropub/flow
 [stackblitz-img]: https://img.shields.io/badge/-Open%20in%20Stackblitz-%231374EF?color=%23444&labelColor=%231374EF&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjEwIDggMTIgMTgiIGhlaWdodD0iMTgiIGZpbGw9IiNGRkYiPjxwYXRoIGQ9Ik0xMCAxNy42aDUuMmwtMyA3LjRMMjIgMTQuNGgtNS4ybDMtNy40TDEwIDE3LjZaIi8+PC9zdmc+&style=for-the-badge
 [stackblitz-url]: https://stackblitz.com/github/astro-community/flow
+[download-url]: https://www.npmjs.com/package/@astropub/flow
+[download-img]: https://img.shields.io/badge/dynamic/json?url=https://api.npmjs.org/downloads/point/last-week/@astropub/flow&query=downloads&label=⇓+week&color=%23444&labelColor=%23EEd100&style=for-the-badge
