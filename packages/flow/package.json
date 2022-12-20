@@ -2,7 +2,7 @@
 	"$schema": "https://json.schemastore.org/package.json",
 	"name": "@astropub/flow",
 	"description": "Use components to control flow in Astro",
-	"version": "0.3.5",
+	"version": "0.3.6",
 	"type": "module",
 	"license": "CC0-1.0",
 	"exports": {
@@ -15,25 +15,32 @@
 			"types": "./astro-flow.d.ts"
 		},
 		"./Case": {
-			"default": "./lib/AstroCase.astro"
+			"default": "./lib/AstroCase.astro",
+			"types": "./lib/AstroCase.d.ts"
 		},
 		"./For": {
-			"default": "./lib/iterate-component.js",
-			"types": "./lib/iterate-component.d.ts"
+			"default": "./lib/AstroIterate.astro.js",
+			"types": "./lib/AstroIterate.astro.d.ts"
+		},
+		"./Iterate": {
+			"default": "./lib/AstroIterate.astro.js",
+			"types": "./lib/AstroIterate.astro.d.ts"
+		},
+		"./Switch": {
+			"default": "./lib/AstroSwitch.astro",
+			"types": "./lib/AstroSwitch.d.ts"
+		},
+		"./When": {
+			"default": "./lib/AstroWhen.astro",
+			"types": "./lib/AstroWhen.d.ts"
+		},
+		"./HTMLString": {
+			"default": "./lib/HTMLString.js",
+			"types": "./lib/HTMLString.d.ts"
 		},
 		"./iterate": {
 			"default": "./lib/iterate.js",
 			"types": "./lib/iterate.d.ts"
-		},
-		"./Iterate": {
-			"default": "./lib/iterate-component.js",
-			"types": "./lib/iterate-component.d.ts"
-		},
-		"./Switch": {
-			"default": "./lib/AstroSwitch.astro"
-		},
-		"./When": {
-			"default": "./lib/AstroWhen.astro"
 		},
 		"./package": "./package.json",
 		"./package.json": "./package.json"

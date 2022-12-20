@@ -1,10 +1,10 @@
 ---
 import Document from '../layouts/Document.astro'
-import { For, iterate } from '@astropub/flow'
+import { For, Iterate, iterate } from '@astropub/flow'
 ---
 <Document title="Astro For Component">
 	<h1>
-		The For Component
+		The <code>&lt;For&gt;</code> Component
 	</h1>
 	<hr />
 	<h2>
@@ -31,22 +31,22 @@ import { For, iterate } from '@astropub/flow'
 	</h2>
 	<pre><code
 >&lt;ul&gt;
-	&lt;For of=&lcub;[
+	&lt;Iterate of=&lcub;[
 		&lcub; title: 'This is the first item.' &rcub;,
 		&lcub; title: 'This is the second item.' &rcub;,
 		&lcub; title: 'This is the last item.' &rcub;,
 	]&rcub;&gt;&lcub;item =&gt; (
 		&lt;li&gt;&lcub;item.title&rcub; (component)&lt;/li&gt;
-	)&rcub;&lt;/For&gt;
+	)&rcub;&lt;/Iterate&gt;
 &lt;/ul&gt;</code></pre>
 	<ul>
-		<For of={[
+		<Iterate of={[
 			{ title: 'This is the first item.' },
 			{ title: 'This is the second item.' },
 			{ title: 'This is the last item.' },
 		]}>{item => (
 			<li>{item.title} (component)</li>
-		)}</For>
+		)}</Iterate>
 	</ul>
 	<br />
 	<h2>
@@ -69,7 +69,7 @@ import { For, iterate } from '@astropub/flow'
 	})}</ul>
 	<br />
 	<h2>
-		Usage with <code>&lt;Iterate&gt;</code> and a Generator
+		Usage with <code>&lt;For&gt;</code> and a Generator
 	</h2>
 	<pre><code
 >&lt;ul&gt;
@@ -90,6 +90,13 @@ import { For, iterate } from '@astropub/flow'
 			yield <li>{item.title} (component + generator)</li>
 		}}</For>
 	</ul>
+	<br />
+	<h2>
+		Usage with Empty <code>&lt;For&gt;</code>
+	</h2>
+	<pre><code
+>&lt;For /&gt;</code></pre>
+	<For />
 	<hr />
 	<p>
 		<a href="../">Go back</a>

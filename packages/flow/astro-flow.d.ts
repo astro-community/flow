@@ -1,40 +1,11 @@
+export { HTMLString } from './lib/HTMLString.d'
 export { iterate } from './lib/iterate.d'
-export { Iterate } from './lib/iterate-component.d'
-export { Iterate as For } from './lib/iterate-component.d'
+export { default as Iterate, Props as IterateProps } from './lib/AstroIterate.astro.d'
+export { default as For, Props as ForProps } from './lib/AstroIterate.astro.d'
+export { default as Switch, Props as SwitchProps } from './lib/AstroSwitch.d'
+export { default as Case, Props as CaseProps } from './lib/AstroCase.d'
+export { default as When, Props as WhenProps } from './lib/AstroWhen.d'
 
-// -----------------------------------------------------------------------------
-
-export function Case<T>(props: CaseProps<T>): any
-export function Switch(props: SwitchProps): any
-
-export interface SwitchProps {
-	of: any
+declare module '@astropub/flow/Iterate' {
+	export * from './lib/AstroIterate.astro.d'
 }
-
-export type CaseProps<T> = (
-	'of' extends keyof T
-		? T['of'] extends (string | number | bigint | boolean | symbol | null | undefined)
-			? {
-				of: T
-			}
-		: T['of'] extends ((value: unknown) => boolean)
-			? {
-				of: T
-			}
-		: T['of'] extends object
-			? {
-				of: T
-			}
-		: never
-	: 'default' extends keyof T
-		? {
-			default: "" | true
-		}
-	: any
-)
-
-// -----------------------------------------------------------------------------
-
-export function When(props: WhenProps): any
-
-type WhenProps = Record<any, any>
