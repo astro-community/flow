@@ -1,0 +1,72 @@
+---
+import Document from "../layouts/Document.astro";
+import { Case, Switch } from "@louiss0/flow";
+---
+
+<Document title="Astro Switch Component">
+  <h1>
+    The <code>&lt;Switch&gt;</code> Component
+  </h1>
+  <hr />
+  <pre><code>&lt;Switch of=&#x7B;null&#x7D;&gt;
+	&lt;Case of=&#x7B;true&#x7D;&gt;
+		&lt;h2&gt;Positive&lt;/h2&gt;
+		&lt;h3&gt;Truly Positive&lt;/h3&gt;
+	&lt;/Case&gt;
+	&lt;Case of=&#x7B;false&#x7D;&gt;
+		&lt;h2&gt;Negative&lt;/h2&gt;
+		&lt;h3&gt;Really Negative&lt;/h3&gt;
+	&lt;/Case&gt;
+	&lt;Case default&gt;
+		&lt;h2&gt;Default&lt;/h2&gt;
+		&lt;h3&gt;Definitely Default&lt;/h3&gt;
+	&lt;/Case&gt;
+&lt;/Switch&gt;</code></pre>
+  <Switch of={null}>
+    <Case of={true}>
+      <h2>Positive</h2>
+      <h3>Truly Positive</h3>
+    </Case>
+    <Case of={false}>
+      <h2>Negative</h2>
+      <h3>Really Negative</h3>
+    </Case>
+    <Case default>
+      <h2>Default</h2>
+      <h3>Definitely Default</h3>
+    </Case>
+  </Switch>
+  <hr />
+  <pre><code>&lt;Switch of=&#x7B;true&#x7D;&gt;
+	&lt;Case of=&#x7B;true&#x7D;&gt;
+		&lt;h2&gt;Positive&lt;/h2&gt;
+		&lt;h3&gt;Truly Positive&lt;/h3&gt;
+	&lt;/Case&gt;
+	&lt;Case of=&#x7B;false&#x7D;&gt;
+		&lt;h2&gt;Negative&lt;/h2&gt;
+		&lt;h3&gt;Really Negative&lt;/h3&gt;
+	&lt;/Case&gt;
+	&lt;Case default&gt;
+		&lt;h2&gt;Default&lt;/h2&gt;
+		&lt;h3&gt;Definitely Default&lt;/h3&gt;
+	&lt;/Case&gt;
+&lt;/Switch&gt;</code></pre>
+  <Switch of={true}>
+    <Case of={true}>
+      <h2>Positive</h2>
+      <h3>Truly Positive</h3>
+    </Case>
+    <Case of={false}>
+      <h2>Negative</h2>
+      <h3>Really Negative</h3>
+    </Case>
+    <Case default>
+      <h2>Default</h2>
+      <h3>Definitely Default</h3>
+    </Case>
+  </Switch>
+  <hr />
+  <p>
+    <a href="../">Go back</a>
+  </p>
+</Document>
