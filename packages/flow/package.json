@@ -1,0 +1,39 @@
+{
+  "name": "@astropub/flow",
+  "version": "0.0.1",
+  "description": "This is the flow package",
+  "main": "index.ts",
+  "files": [
+    "lib",
+    "index.ts",
+    "index.d.ts"
+  ],
+  "devDependencies": {
+    "astro": "^1.9.2",
+    "astro-component-tester": "^0.6.0",
+    "eslint": "^8.33.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.3",
+    "prettier-plugin-astro": "^0.5.5",
+    "typescript": "^4.9.5"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/astro-community/component-template.git"
+  },
+  "keywords": [
+    "astro",
+    "astro-component"
+  ],
+  "author": "Jonathan O Neal",
+  "license": "MIT",
+  "types": "./index.d.ts",
+  "bugs": {
+    "url": "https://github.com/astro-community/component-template/issues"
+  },
+  "homepage": "https://github.com/astro-community/component-template#readme"
+}
