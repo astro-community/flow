@@ -11,7 +11,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astropub/flow": "^0.3.6",
     "astro": "^2.0.4"
+  },
+  "devDependencies": {
+	"@astropub/flow": "workspace:^0.0.2"
   }
 }

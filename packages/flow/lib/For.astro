@@ -1,19 +1,21 @@
 ---
-import { mapArgsFromIterableWithForEachMethodToArray } from './shared';
-import { HasForEachMethod } from './types';
+import { mapArgsFromIterableWithForEachMethodToArray } from "./shared";
+import { HasForEachMethod } from "./types";
 
 interface Props<T extends HasForEachMethod> {
-	of: T;
-	children: Parameters<T['forEach']>[0];
+  of: T;
+  children: Parameters<T["forEach"]>[0];
 }
 
 const { of: iterable } = Astro.props;
 ---
 
-{
-	(async function* () {
-		for await (const args of mapArgsFromIterableWithForEachMethodToArray(iterable)) {
-			yield await Astro.slots.render('default', [...args]);
-		}
-	})()
-}
+<Fragment
+  set:html={(async function* () {
+    for await (const args of mapArgsFromIterableWithForEachMethodToArray(
+      iterable
+    )) {
+      yield await Astro.slots.render("default", [...args]);
+    }
+  })()}
+/>
