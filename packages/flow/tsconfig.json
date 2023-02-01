@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "target": "ES5",
+    "module": "ESNext",
+    "allowJs": true,
+    "noEmit": true
+  },
+  "include": ["index.ts", "src", "index.d.ts"]
+}

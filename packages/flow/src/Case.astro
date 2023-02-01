@@ -1,0 +1,36 @@
+---
+import { getSwitchState } from './AstroSwitchState';
+import { Case, ScalarValues } from './types';
+
+// How this component is supposed to be typed
+type Props<T extends ScalarValues> = Case<T>;
+
+const switchState = getSwitchState();
+/** Value to match against the current Switch. */
+
+const ofArg = Astro.props.of;
+/** Whether to render if no other cases have rendered. */
+
+const hasDefaultProp = Astro.props.default;
+/** Whether to render this case. */
+const shouldRenderSlot = hasDefaultProp
+	? switchState?.hasRenderedCase === false
+	: switchState?.hasRenderedDefault === false
+	? typeof ofArg === 'function'
+		? ofArg(switchState.value)
+		: ofArg === switchState.value
+	: false;
+// if the test passed
+if (shouldRenderSlot && switchState) {
+	// if the case was not a default argument
+	if (hasDefaultProp === undefined) {
+		// mark a case as rendered
+		switchState.hasRenderedCase = true;
+	} else {
+		// otherwise, mark default as rendered
+		switchState.hasRenderedDefault = true;
+	}
+}
+---
+
+{shouldRenderSlot && <slot />}

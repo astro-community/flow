@@ -1,0 +1,20 @@
+---
+import { HTMLString } from './HTMLString';
+
+type Props = Record<string, unknown>;
+
+const render = async (props: Props) => {
+	/** Whether the "when" state is true or false. */
+	const hasTruthyWhen = Object.values(props).every((value) => Boolean(value));
+
+	/** Slot to render, which is `"default"` when `true` and `"else"` when `false`. */
+	const slotToRender = hasTruthyWhen ? 'default' : Object.hasOwn(Astro.slots, 'else') ? 'else' : '';
+
+	/** Rendered contents. */
+	const htmlPart = new HTMLString(slotToRender ? await Astro.slots.render(slotToRender) : '');
+
+	return htmlPart;
+};
+---
+
+{render(Astro.props)}

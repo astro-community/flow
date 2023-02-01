@@ -1,0 +1,26 @@
+---
+import { statesOfSwitch } from './AstroSwitchState';
+import { HTMLString } from './HTMLString';
+import { ScalarValues } from './types';
+
+type Props<T extends ScalarValues> = {
+	of: T;
+};
+
+const render = async (condition: unknown) => {
+	const xyz = { hasRenderedCase: false, hasRenderedDefault: false, value: condition };
+
+	// add a new shared "switch" state
+	statesOfSwitch.push(xyz);
+
+	/** Rendered contents. */
+	const htmlPart = new HTMLString(await Astro.slots.render('default'));
+
+	// remove the new shared "switch" state
+	statesOfSwitch.pop();
+
+	return htmlPart;
+};
+---
+
+{render(Astro.props.of)}
