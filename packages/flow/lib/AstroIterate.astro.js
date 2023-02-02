@@ -1,4 +1,4 @@
-import { getNormalizedGenerator, isIterable } from './shared.js'
+import { getGenerator, isIterable } from './shared.js'
 
 export default Object.assign(
 	function Iterate(_result, attributes, slots) {
@@ -9,7 +9,7 @@ export default Object.assign(
 		).then(
 			(result) => result.expressions.at(0)
 		).then(
-			(result) => getNormalizedGenerator(result),
+			(result) => getGenerator(result),
 			() => null
 		)
 

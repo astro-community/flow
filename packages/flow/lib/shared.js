@@ -13,8 +13,8 @@ const GeneratorFunction = (function * () {}).constructor
 /** @type {AsyncGeneratorFunctionConstructor} */
 const AsyncGeneratorFunction = (async function * () {}).constructor
 
-/** @type {import('./shared.d').getNormalizedGenerator} */
-export const getNormalizedGenerator = (fn) => (
+/** @type {import('./shared.d').getGenerator} */
+export const getGenerator = (fn) => (
 	typeof fn !== 'function'
 		? async function * (value) {
 			yield await value

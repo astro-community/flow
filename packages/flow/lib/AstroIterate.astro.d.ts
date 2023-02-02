@@ -1,17 +1,8 @@
-export default function For<T>(props: Props<T>): any
+import { RenderIterable } from './types.d'
 
-export type Props<T> = {
-	[K in keyof T]: K extends 'children' ? unknown : T[K]
-} & {
-	children?: {
-		(item: IterableValue<T[Exclude<keyof T, 'children'>]>): any
-	}
+export default function For<T>(props: Props<T> | Record<string, unknown>): any;
+
+export interface Props<T> {
+	of: T
+	children: RenderIterable<T>
 }
-
-type IterableValue<T> = T extends Array<infer P>
-	? P
-: T extends AsyncGenerator<infer P, unknown, unknown>
-	? P
-: T extends Generator<infer P, unknown, unknown>
-	? P
-: never

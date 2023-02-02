@@ -1,7 +1,8 @@
 ---
+import type { Props } from './AstroWhen.d'
 import { HTMLString } from './HTMLString.js'
 
-const render = async (props: Record<string, any>) => {
+async function render(props: Props) {
 	/** Whether the "when" state is true or false. */
 	const hasTruthyWhen = Object.values(props).every(value => Boolean(value))
 

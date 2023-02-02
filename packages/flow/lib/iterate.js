@@ -1,14 +1,12 @@
-import { isIterable, getNormalizedGenerator } from './shared.js'
+import { isIterable, getGenerator } from './shared.js'
 
 /** @type {import('./iterate.d').iterate} */
-export const iterate = async function * (iteratable, generator) {
-	const normalizedGenerator = getNormalizedGenerator(generator)
+export async function * iterate(iterable, render) {
+	const generator = getGenerator(render)
 
-	if (isIterable(iteratable)) {
-		for await (const iteration of iteratable) {
-			yield * normalizedGenerator(iteration)
+	if (isIterable(iterable)) {
+		for await (const iteration of iterable) {
+			yield * generator(iteration)
 		}
 	}
 }
-
-export default iterate

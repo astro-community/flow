@@ -1,3 +1,5 @@
-export type Props = Record<any, any>
+export default function When(props: Props): any;
 
-export default function When(props: Props): any
+export type Props = {
+	[prop: string]: unknown
+} & any
