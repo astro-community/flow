@@ -31,6 +31,33 @@ import { For, iterate } from "@astropub/flow";
 		}
 	</ul>
 	<br />
+
+	<h2>
+		Usage with <code>iterate()</code> and Generator
+	</h2>
+	<pre><code>&lt;ul&gt;&lcub;iterate([
+	&lcub; title: 'This is the first item.' &rcub;,
+	&lcub; title: 'This is the second item.' &rcub;,
+	&lcub; title: 'This is the last item.' &rcub;,
+], function* (item)  (
+ &lcub; yield &lt;li&gt;&lcub;item.title&rcub; (method)&lt;/li&gt;&rcub;
+)&rcub;&lt;/ul&gt;</code></pre>
+	<ul>
+		{
+			iterate(
+				[
+					{ title: "This is the first item." },
+					{ title: "This is the second item." },
+					{ title: "This is the last item." },
+				],
+				function* (item) {
+					yield <li>{item.title} (method)</li>;
+				}
+			)
+		}
+	</ul>
+	<br />
+
 	<h2>
 		Usage with <code>&lt;For&gt;</code>
 	</h2>

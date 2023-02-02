@@ -8,6 +8,16 @@ function isIterable<T>(value: unknown): value is Iterable<T> | AsyncIterable<T> 
 	);
 }
 
+const GeneratorFunction = (function * () {}).constructor
+
+const AsyncGeneratorFunction = (async function * () {}).constructor
+
+
+const isGenerator = (value:unknown):value is GeneratorFunction => value instanceof GeneratorFunction
+const isAsyncGenerator = (value:unknown):value is AsyncGeneratorFunction => value instanceof AsyncGeneratorFunction
+
+
+
 const mapArgsFromIterableWithForEachMethodToArray = (iterable: HasForEachMethod) => {
 	const arrayOfArgs = [];
 
@@ -23,4 +33,6 @@ const wrapFunctionWithAsyncGenerator = (cb: (...args: Array<unknown>) => unknown
 		yield await cb(...args);
 	};
 
-export { isIterable, wrapFunctionWithAsyncGenerator, mapArgsFromIterableWithForEachMethodToArray };
+
+
+export { isIterable, wrapFunctionWithAsyncGenerator, mapArgsFromIterableWithForEachMethodToArray, isGenerator, isAsyncGenerator };
