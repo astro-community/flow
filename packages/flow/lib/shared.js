@@ -23,8 +23,8 @@ export const getNormalizedGenerator = (fn) =>
 		  }
 		: isGenerator(fn)
 		? fn
-		: async function* (value) {
-				yield await fn(await value)
+		: async function* (...value) {
+				yield await fn(...value)
 		  }
 /** @type {import('./shared.d').hasForEachMethod} */
 export function hasForEachMethod(value) {
