@@ -1,15 +1,14 @@
 
-type ScalarValues = string | null | Record<string, unknown> | undefined | number | boolean
+type AllowedTypes = string | null | bigint | Record<PropertyKey, unknown> | undefined | number | boolean
 
 type FilledCase = {
-    of: ScalarValues |  ((value:unknown)=> boolean);
+    of: AllowedTypes |  ((value:unknown)=> boolean);
     default?:never
 }
 
 type DefaultCase = {
     default:true;
     of?:never
-
     }
 type Case =  FilledCase |  DefaultCase
 
