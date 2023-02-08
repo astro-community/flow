@@ -6,6 +6,10 @@ export function getNormalizedGenerator(value: unknown): (
 	(...args:Array<any>) => AsyncGenerator<string, void, void>
 )
 
+export type GetAppropriateFunctionBasedOnWhetherOrNotAGeneratorOfAnIterableWithTheForEachMethodIsPassed<T> = T extends HasForEachMethod
+	? Parameters<T["forEach"]>[0] : T extends Generator
+	? <U>(value: ReturnType<T["next"]>["value"])=> U : <V>(value:unknown)=> V
+
 
 export type HasForEachMethod = {
 	forEach(callbackfn: (...args:Array<any>) => void, thisArg?: any): void;

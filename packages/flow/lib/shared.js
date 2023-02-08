@@ -30,3 +30,5 @@ export const getNormalizedGenerator = (fn) =>
 export function hasForEachMethod(value) {
 	return 'forEach' in value
 }
+
+Object.values

@@ -11,7 +11,7 @@ export const iterate = async function* (iterable, generator) {
 	if (isIterable(iterable)) {
 		if (hasForEachMethod(iterable)) {
 			for await (const [key, value] of Object.entries(iterable)) {
-				yield* normalizedGenerator(key, value, iterable)
+				yield* normalizedGenerator(value, key, iterable)
 			}
 			return
 		}
