@@ -1,5 +1,9 @@
 /** Iterates the given object and returns the value of the given function using each value. */
-export function iterate <T>(
-	iteratable: Iterable<T>,
-	render?: ((value: T) => any)
+
+import { GetAppropriateFunctionBasedOnWhetherOrNotAGeneratorOfAnIterableWithTheForEachMethodIsPassed, } from "./shared";
+
+
+export function iterate<T extends Iterable<unknown>, U extends GetAppropriateFunctionBasedOnWhetherOrNotAGeneratorOfAnIterableWithTheForEachMethodIsPassed<T> >(
+	iterable: T,
+	render?: U
 ): AsyncGenerator<any, void, any>
