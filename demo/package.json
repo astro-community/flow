@@ -11,5 +11,6 @@
   "devDependencies": {
     "@astropub/flow": "workspace:^0.3.6",
     "astro": "latest"
-  }
+  },
+ 
 }

@@ -1,12 +1,23 @@
-import { isIterable, getNormalizedGenerator } from './shared.js'
+import {
+	isIterable,
+	getNormalizedGenerator,
+	hasForEachMethod,
+} from './shared.js'
 
 /** @type {import('./iterate.d').iterate} */
-export const iterate = async function * (iteratable, generator) {
+export const iterate = async function* (iterable, generator) {
 	const normalizedGenerator = getNormalizedGenerator(generator)
 
-	if (isIterable(iteratable)) {
-		for await (const iteration of iteratable) {
-			yield * normalizedGenerator(iteration)
+	if (isIterable(iterable)) {
+		if (hasForEachMethod(iterable)) {
+			for await (const [key, value] of Object.entries(iterable)) {
+				yield* normalizedGenerator(value, key, iterable)
+			}
+			return
+		}
+
+		for await (const iteration of iterable) {
+			yield* normalizedGenerator(iteration)
 		}
 	}
 }
