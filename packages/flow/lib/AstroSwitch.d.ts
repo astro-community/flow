@@ -1,5 +1,6 @@
+
 export interface Props {
-	of: any
+	of: unknown
 }
 
-export default function Switch(props: Props): any
+export default function Switch<T>(props: Props): any

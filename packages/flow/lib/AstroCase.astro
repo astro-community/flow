@@ -11,15 +11,13 @@ const ofArg = Astro.props.of
 const hasDefaultProp = Astro.props.default
 
 /** Whether to render this case. */
-const shouldRenderSlot = (
-	hasDefaultProp
-		? switchState.hasRenderedCase === false
+const shouldRenderSlot = hasDefaultProp
+	? switchState.hasRenderedCase === false
 	: switchState.hasRenderedDefault === false
-		? typeof ofArg === 'function'
-			? ofArg(switchState.value)
+	? typeof ofArg === 'function'
+		? ofArg(switchState.value)
 		: ofArg === switchState.value
 	: false
-)
 
 // if the test passed
 if (shouldRenderSlot) {
@@ -33,4 +31,5 @@ if (shouldRenderSlot) {
 	}
 }
 ---
+
 {shouldRenderSlot && <slot />}
