@@ -30,7 +30,7 @@ The **`<When>`** component renders if the given conditions are truthy.
 ---
 import { When } from '@astropub/flow'
 ---
-<When {checkForTruthiness} {alsoCheckForTruthiness}>
+<When test1={checkForTruthiness} test2={alsoCheckForTruthiness}>
   <p>Everything was Truthy!</p>
 
   <Fragment slot="else">
@@ -79,7 +79,7 @@ import { Case, For, Switch } from '@astropub/flow'
   (item) => <h2>{item.title}</h2>
 }</For>
 
-<When {true}>
+<When test={true}>
   <p>Things are true.</p>
 </When>
 

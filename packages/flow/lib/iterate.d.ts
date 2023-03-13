@@ -1,9 +1,15 @@
+import type {
+	IterableOrRecord,
+	IterableOrRecordCallback,
+} from './shared.d'
+
 /** Iterates the given object and returns the value of the given function using each value. */
-
-import { GetAppropriateFunctionBasedOnWhetherOrNotAGeneratorOfAnIterableWithTheForEachMethodIsPassed, } from "./shared";
-
-
-export function iterate<T extends Iterable<unknown>, U extends GetAppropriateFunctionBasedOnWhetherOrNotAGeneratorOfAnIterableWithTheForEachMethodIsPassed<T> >(
+declare function iterate<V, T extends IterableOrRecord<V>, U extends IterableOrRecordCallback<T>>(
 	iterable: T,
-	render?: U
-): AsyncGenerator<any, void, any>
+	generator: U
+): AsyncGenerator<ReturnType<U>, void, unknown>
+
+export {
+	iterate as default,
+	iterate
+}

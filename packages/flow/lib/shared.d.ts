@@ -1,20 +1,29 @@
 /** Returns whether the given value is iteratble. */
-export function isIterable<T>(value: T): T extends Iterable<T> ? true : false
+export function isIterable<T>(value: T): value is NonNullable<T> & Iterable<T>
 
 /** Returns the given value as a normalized generator. */
-export function getNormalizedGenerator(value: unknown): (
-	(...args:Array<any>) => AsyncGenerator<string, void, void>
-)
+export function getNormalizedGenerator<T>(fn: YieldType<T>): (value: T, index: number | string) => AsyncGenerator<Awaited<T>, void, unknown>
 
-export type GetAppropriateFunctionBasedOnWhetherOrNotAGeneratorOfAnIterableWithTheForEachMethodIsPassed<T> = T extends HasForEachMethod
-	? Parameters<T["forEach"]>[0] : T extends Generator
-	? <U>(value: ReturnType<T["next"]>["value"])=> U : <V>(value:unknown)=> V
+export function isGenerator(fn: any): fn is GeneratorFunction | AsyncGeneratorFunction
 
+export type IterableOrRecordCallback<T> = FunctionType<
+	T extends Iterable<infer U>
+		? (value: U, index: number) => unknown
+	: T extends AsyncGenerator<infer U, unknown, unknown>
+		? (value: U, index: number) => unknown
+	: T extends Generator<infer U, unknown, unknown>
+		? (value: U, index: number) => unknown
+	: T extends Entriable<infer U, infer K>
+		? (value: U, index: Extract<K, string>) => unknown
+	: (value: unknown, index: number) => unknown
+>
 
-export type HasForEachMethod = {
-	forEach(callbackfn: (...args:Array<any>) => void, thisArg?: any): void;
+export type Entriable<T, K extends keyof any = keyof any> = {
+	[P in K]: T
 }
 
-export function hasForEachMethod(value:unknown): value is HasForEachMethod
+export type IterableOrRecord<T> = Iterable<T> | Entriable<T>
 
-export function isGenerator(value:unknown): value is GeneratorFunction | AsyncGeneratorFunction
+export type YieldType<T> = T extends Generator<infer P, unknown, unknown> ? P : T extends AsyncGenerator<infer P, unknown, unknown> ? P : any
+
+export type FunctionType<T extends (...args: any) => unknown> = T extends (...args: infer A) => infer R ? (...args: A) => R : any

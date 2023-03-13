@@ -1,34 +1,34 @@
-/** @type {import('./shared.d').isIterable} */
-export const isIterable = (value) =>
-	value != null &&
-	(typeof value[Symbol.iterator] === 'function' ||
-		typeof value[Symbol.asyncIterator] === 'function')
+// @ts-check
 
-/** @type {GeneratorFunctionConstructor} */
-const GeneratorFunction = function* () {}.constructor
+const GeneratorFunctionConstructor = /** @type {GeneratorFunctionConstructor} */ (function* () {}.constructor)
 
-/** @type {AsyncGeneratorFunctionConstructor} */
-const AsyncGeneratorFunction = async function* () {}.constructor
+const AsyncGeneratorFunctionConstructor = /** @type {AsyncGeneratorFunctionConstructor} */ (async function* () {}.constructor)
 
-/** @type {import('./shared.d').isGenerator} */
-const isGenerator = (value) =>
-	value instanceof GeneratorFunction ||
-	value instanceof AsyncGeneratorFunction
+export const isIterable = /** @type {import('./shared.d').isIterable} */ (
+	(value) => value != null &&
+	(
+		typeof value[Symbol.iterator] === 'function' ||
+		typeof value[Symbol.asyncIterator] === 'function'
+	)
+)
 
-/** @type {import('./shared.d').getNormalizedGenerator} */
-export const getNormalizedGenerator = (fn) =>
-	typeof fn !== 'function'
-		? async function* (value) {
+export const { entries } = Object
+
+export const isGenerator = /** @type {import('./shared.d').isGenerator} */ (
+	(value) =>
+		value instanceof GeneratorFunctionConstructor ||
+		value instanceof AsyncGeneratorFunctionConstructor
+)
+
+export const getNormalizedGenerator = /** @type {import('./shared.d').getNormalizedGenerator} */ (
+	(fn) =>
+		typeof fn !== 'function'
+			? async function* (value) {
 				yield await value
-		  }
+			}
 		: isGenerator(fn)
-		? fn
+			? fn
 		: async function* (...value) {
-				yield await fn(...value)
-		  }
-/** @type {import('./shared.d').hasForEachMethod} */
-export function hasForEachMethod(value) {
-	return 'forEach' in value
-}
-
-Object.values
+			yield await fn(...value)
+		}
+)

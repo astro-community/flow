@@ -6,35 +6,47 @@ import { When } from '@astropub/flow'
 	<h1>
 		The <code>&lt;When&gt;</code> Component
 	</h1>
+
 	<hr />
+
+	<h2>
+		Usage with <code>&lt;When test=&lcub;true&rcub;&gt;</code>
+	</h2>
 	<pre><code
->&lt;When &#x7B;true&#x7D;&gt;
+>&lt;When test=&#x7B;true&#x7D;&gt;
 	&lt;h2&gt;True&lt;/h2&gt;
 	&lt;Fragment slot=&quot;else&quot;&gt;
 		&lt;h2&gt;False&lt;/h2&gt;
 	&lt;/Fragment&gt;
 &lt;/When&gt;</code></pre>
-	<When {true}>
+	<When test={true}>
 		<h2>True</h2>
 		<Fragment slot="else">
 			<h2>False</h2>
 		</Fragment>
 	</When>
-	<hr />
+
+	<br />
+
+	<h2>
+		Usage with <code>&lt;When test=&lcub;false&rcub;&gt;</code>
+	</h2>
 	<pre><code
->&lt;When &#x7B;false&#x7D;&gt;
+>&lt;When test=&#x7B;false&#x7D;&gt;
 	&lt;h2&gt;True&lt;/h2&gt;
 	&lt;Fragment slot=&quot;else&quot;&gt;
 		&lt;h2&gt;False&lt;/h2&gt;
 	&lt;/Fragment&gt;
 &lt;/When&gt;</code></pre>
-	<When {false}>
+	<When test={false}>
 		<h2>True</h2>
 		<Fragment slot="else">
 			<h2>False</h2>
 		</Fragment>
 	</When>
+
 	<hr />
+
 	<p>
 		<a href="../">Go back</a>
 	</p>

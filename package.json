@@ -1,7 +1,7 @@
 {
-	"name": "astro-flow-root",
+	"name": "@astropub/flow.root",
+	"private": true,
 	"type": "module",
-	"version": "0.3.6",
 	"workspaces": [
 		"demo",
 		"packages/*"
@@ -27,6 +27,5 @@
 	"devDependencies": {
 		"astro": "latest",
 		"types-object": "latest"
-	},
-	"private": true
+	}
 }

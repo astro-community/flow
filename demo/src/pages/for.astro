@@ -2,12 +2,12 @@
 import Document from '../layouts/Document.astro'
 import { For, Iterate, iterate } from '@astropub/flow'
 ---
-
 <Document title="Astro For Component">
 	<h1>
 		The <code>&lt;For&gt;</code> Component
 	</h1>
 	<hr />
+
 	<h2>
 		Usage with <code>iterate()</code>
 	</h2>
@@ -31,6 +31,7 @@ import { For, Iterate, iterate } from '@astropub/flow'
 		}
 	</ul>
 	<br />
+
 	<h2>
 		Usage with <code>&lt;Iterate&gt;</code>
 	</h2>
@@ -55,6 +56,7 @@ import { For, Iterate, iterate } from '@astropub/flow'
 		</Iterate>
 	</ul>
 	<br />
+
 	<h2>
 		Usage with <code>iterate()</code> and a Generator
 	</h2>
@@ -80,6 +82,7 @@ import { For, Iterate, iterate } from '@astropub/flow'
 		}
 	</ul>
 	<br />
+
 	<h2>
 		Usage with <code>&lt;For&gt;</code> and a Generator
 	</h2>
@@ -108,12 +111,62 @@ import { For, Iterate, iterate } from '@astropub/flow'
 		</For>
 	</ul>
 	<br />
+
 	<h2>
 		Usage with Empty <code>&lt;For&gt;</code>
 	</h2>
 	<pre><code>&lt;For /&gt;</code></pre>
 	<For />
+	<br />
+
+	<h2>
+		Usage with <code>&lt;For&gt;</code> and an Object
+	</h2>
+	<pre><code>&lt;dl&gt;
+	&lt;For of=&lcub;&lcub;
+		title: 'This is the main title.',
+		subtitle: 'This is the secondary title.',
+	&rcub;&rcub;&gt;&lcub;
+		(value, name) =&gt; (
+			&lt;dt&gt;&lcub;name&rcub;&lt;/dt&gt;
+			&lt;dd&gt;&lcub;value&rcub;&lt;/dd&gt;
+		)
+	&rcub;&lt;/For&gt;
+&lt;/dl&gt;</code></pre>
+	<dl>
+		<For of={{
+			title: 'This is the main title.',
+			subtitle: 'This is the secondary title.',
+		}}>{
+			(value, name) => (
+				<dt>{name}</dt>
+				<dd>{value}</dd>
+			)
+		}</For>
+	</dl>
+	<br />
+
+	<h2>
+		Usage with <code>iterate()</code> and an Object
+	</h2>
+	<pre><code>&lt;dl&gt;&lcub;iterate(&lcub;
+	title: 'This is the main title.',
+	subtitle: 'This is the secondary title.',
+&rcub;, (value, name) =&gt; (
+	&lt;dt&gt;&lcub;name&rcub;&lt;/dt&gt;
+	&lt;dd&gt;&lcub;value&rcub;&lt;/dd&gt;
+))&rcub;&lt;/dl&gt;</code></pre>
+	<dl>{iterate({
+		title: 'This is the main title.',
+		subtitle: 'This is the secondary title.',
+	}, (value, name) => (
+		<dt>{name}</dt>
+		<dd>{value}</dd>
+	))}</dl>
+	<br />
+
 	<hr />
+
 	<p>
 		<a href="../">Go back</a>
 	</p>
